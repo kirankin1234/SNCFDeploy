@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import backgroundAnimation from '../images/corner.json';
 import playButtonAnimation from '../images/button.json';
-import guidingForceImage from '../images/mataji.webp';
+import guidingForceImage from '../images/Mataji.webp';
 
 const { Title, Paragraph } = Typography;
 
