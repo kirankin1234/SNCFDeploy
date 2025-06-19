@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Row, Col, Button } from "antd";
 import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
+import Typical from "react-typical";
 import Lottie from "lottie-react";
 
 // Lottie animations
@@ -10,7 +10,7 @@ import harmonyAnimation from "../images/vision.json";
 
 const { Title, Paragraph } = Typography;
 
-const lottieSize = 120; // px, consistent size for both
+const lottieSize = 100; // Reduced from 120 to 100 for both logos
 
 const MissionVision = () => {
   const wavyStyle = {
@@ -56,20 +56,12 @@ const MissionVision = () => {
           level={1}
           style={{
             color: "#1a237e",
-            fontSize: 32, // Reduced from 48 to 32
+            fontSize: 32,
             fontWeight: 700,
             marginBottom: 0,
           }}
         >
-          <Typewriter
-            words={["Sant Nirankari Charitable Foundation"]}
-            loop={0} // 0 for infinite loop, or set a specific number
-            cursor
-            cursorStyle="|"
-            typeSpeed={100}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
+          "Sant Nirankari Charitable Foundation"
         </Title>
         <Paragraph style={{ fontSize: 20, color: "#555", maxWidth: 800, margin: "0 auto" }}>
           Spreading the message of oneness, compassion, and selfless service across the world.
@@ -95,7 +87,7 @@ const MissionVision = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 style={{
-                  fontSize: 28,
+                  fontSize: 24, // Reduced from 28 to 24
                   color: "#1a237e",
                   marginBottom: 20,
                   fontWeight: 800,
@@ -144,7 +136,7 @@ const MissionVision = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 style={{
-                  fontSize: 28,
+                  fontSize: 24, // Reduced from 28 to 24
                   color: "#1a237e",
                   marginBottom: 20,
                   fontWeight: 800,

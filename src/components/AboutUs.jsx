@@ -8,13 +8,28 @@ import { Typewriter } from "react-simple-typewriter";
 const { Title, Paragraph, Text } = Typography;
 
 const counterData = [
-  { title: "Blood Donation Camps", count: 500, color: "#ef4444", suffix: "+" },
-  { title: "Cleanliness Drives", count: 300, color: "#10b981", suffix: "+" },
-  { title: "Tree Plantation", count: 100000, color: "#3b82f6", suffix: "+" },
-  { title: "Medical Camps", count: 120, color: "#f59e42", suffix: "+" },
-  { title: "Skill Workshops", count: 80, color: "#a855f7", suffix: "+" },
-  { title: "Relief Drives", count: 60, color: "#6366f1", suffix: "+" },
+  // HEAL Category
+  { title: "Blood Units Donated", count: 1319758, color: "#22B573", suffix: "+" },
+  { title: "Lives Potentially Saved", count: 3906450, color: "#22B573", suffix: "+" },
+  { title: "Camps Organised (Health & Eye)", count: 1076, color: "#22B573", suffix: "+" },
+  { title: "Total Patients Treated", count: 598510, color: "#22B573", suffix: "+" },
+  { title: "Sewadars Contributed", count: 1100000, color: "#22B573", suffix: "+" },
+
+  // ENRICH Category
+  { title: "Cleanliness Drives Conducted", count: 1533, color: "#00AEEF", suffix: "+" },
+  { title: "Water Bodies Cleaned", count: 1533, color: "#00AEEF", suffix: "+" },
+  { title: "Skill Development Villages Adopted", count: 7, color: "#00AEEF", suffix: "+" },
+  { title: "People Benefited (Watershed Project)", count: 30000, color: "#00AEEF", suffix: "+" },
+
+  // EMPOWER Category (With Softer Pink)
+  { title: "Tree Plantation Drives", count: 2270, color: "#F48FB1", suffix: "+" },
+  { title: "Total Trees Planted", count: 1588875, color: "#F48FB1", suffix: "+" },
+  { title: "Oneness Vann Created", count: 603, color: "#F48FB1", suffix: "+" },
 ];
+
+
+
+
 
 // Helper for scroll button hover effect
 const handleMouseEnter = (e) => {
@@ -157,6 +172,10 @@ const AboutUs = () => {
           </motion.div>
 
           {/* Counters Below Video */}
+
+
+
+
           <Row
             gutter={[16, 16]}
             justify="center"
@@ -174,13 +193,13 @@ const AboutUs = () => {
                 >
                   <Card
                     style={{
+                      width: 180,            // Fixed width
+                      height: 180,           // Fixed height
                       borderRadius: "14px",
                       textAlign: "center",
                       boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
                       cursor: "pointer",
                       background: `linear-gradient(135deg, ${item.color}18, #ffffff)`,
-                      minHeight: 120,
-                      maxWidth: 180,
                       margin: "0 auto",
                       display: "flex",
                       flexDirection: "column",
@@ -201,6 +220,10 @@ const AboutUs = () => {
               </Col>
             ))}
           </Row>
+
+
+
+
         </Col>
       </Row>
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { 
-  Menu, 
-  Layout, 
-  Badge, 
-  Space, 
-  Typography, 
-  Image 
+import {
+  Menu,
+  Layout,
+  Badge,
+  Space,
+  Typography,
+  Image
 } from 'antd';
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -60,7 +60,7 @@ const Navbar = () => {
           src={logoImg}
           alt="Sant Nirankari Charitable Foundation Logo"
           preview={false}
-          width={120}
+          width={250} // Increased from 120 to 160 for better clarity
         />
       </div>
 
@@ -166,8 +166,8 @@ const Navbar = () => {
 
         <Menu.Item key="careers" icon={<SolutionOutlined />}>
           <Space>
-            <a href="#" style={{ color: '#52c41a', fontWeight: 'bold' }}>Careers</a>
-            <Badge count="New" style={{ backgroundColor: '#52c41a' }} />
+            <a href="#" style={{ fontWeight: 'bold' }}>Careers</a>
+            <Badge count="New" style={{ backgroundColor: '#white' }} />
           </Space>
         </Menu.Item>
       </Menu>

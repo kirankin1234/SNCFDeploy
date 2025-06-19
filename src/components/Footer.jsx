@@ -6,7 +6,16 @@ import { motion } from "framer-motion";
 import snmLogo from "../images/logo.webp";
 
 const { Footer } = Layout;
-const { Title, Text, Link } = Typography;
+const { Title, Text } = Typography;
+
+const themeColors = {
+  primary: "#0ABAB5",
+  secondary: "#56DFCF",
+  accent: "#ADEED9",
+  pink: "#FFEDF3",
+  textDark: "#1c276d",
+  textSecondary: "#555555"
+};
 
 const socialLinks = [
   { icon: <FaFacebookF />, href: "#", label: "Facebook", color: "#4267B2" },
@@ -19,13 +28,11 @@ const socialLinks = [
 const CustomFooter = () => (
   <Footer
     style={{
-      background: "linear-gradient(90deg, #f8fafc 0%, #e0e7ef 100%)",
-      borderTop: "1px solid #e0e0e0",
+      background: "#ffffff",
+      borderTop: `4px solid ${themeColors.primary}`,
       padding: "48px 0 24px 0",
       boxShadow: "0 -4px 24px rgba(0,0,0,0.04)",
       position: "relative",
-      zIndex: 1,
-      overflowX: "hidden",
       width: "100%",
       maxWidth: "100vw",
     }}
@@ -38,14 +45,14 @@ const CustomFooter = () => (
     >
       <Row gutter={[48, 32]} justify="center" style={{ maxWidth: 1200, margin: "0 auto" }}>
         <Col xs={24} md={8}>
-          <Title level={4} style={{ color: "#1a237e", letterSpacing: 1 }}>Quick Links</Title>
+          <Title level={4} style={{ color: themeColors.primary, letterSpacing: 1 }}>Quick Links</Title>
           <Space direction="vertical" size="middle">
-            {["Contact", "Social Media – Some Guidelines", "Privacy Policy", "Terms of Service"].map((text, idx) => (
+            {["Contact", "Social Media Guidelines", "Privacy Policy", "Terms of Service"].map((text, idx) => (
               <motion.a
                 key={idx}
                 href="#"
-                whileHover={{ scale: 1.1, color: "#1a237e" }}
-                style={{ color: "#374151", textDecoration: "none", display: "block", transition: "color 0.3s" }}
+                whileHover={{ scale: 1.05, color: themeColors.primary }}
+                style={{ color: themeColors.textSecondary, textDecoration: "none", display: "block", transition: "color 0.3s" }}
               >
                 {text}
               </motion.a>
@@ -54,14 +61,14 @@ const CustomFooter = () => (
         </Col>
 
         <Col xs={24} md={8}>
-          <Title level={4} style={{ color: "#1a237e", letterSpacing: 1 }}>Useful Links</Title>
+          <Title level={4} style={{ color: themeColors.primary, letterSpacing: 1 }}>Useful Links</Title>
           <Space direction="vertical" size="middle">
-            {["Award and Honors", "Our Partners", "Foreign Contributions", "Contribute"].map((text, idx) => (
+            {["Awards and Honors", "Our Partners", "Foreign Contributions", "Contribute"].map((text, idx) => (
               <motion.a
                 key={idx}
                 href="#"
-                whileHover={{ scale: 1.1, color: "#1a237e" }}
-                style={{ color: "#374151", textDecoration: "none", display: "block", transition: "color 0.3s" }}
+                whileHover={{ scale: 1.05, color: themeColors.primary }}
+                style={{ color: themeColors.textSecondary, textDecoration: "none", display: "block", transition: "color 0.3s" }}
               >
                 {text}
               </motion.a>
@@ -70,14 +77,13 @@ const CustomFooter = () => (
         </Col>
 
         <Col xs={24} md={8}>
-          <Title level={4} style={{ color: "#1a237e", letterSpacing: 1 }}>Connect With Us</Title>
+          <Title level={4} style={{ color: themeColors.primary, letterSpacing: 1 }}>Connect With Us</Title>
           <Space size="middle">
             {socialLinks.map((item, index) => (
               <motion.a
                 key={item.label}
                 href={item.href}
                 aria-label={item.label}
-                className="footer-social-icon"
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
                 style={{
@@ -87,14 +93,13 @@ const CustomFooter = () => (
                   width: 48,
                   height: 48,
                   borderRadius: "50%",
-                  background: "#fff",
+                  background: themeColors.accent,
                   color: item.color,
                   fontSize: 20,
                   transition: "all 0.3s",
                   boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                   border: "1px solid #e0e0e0",
                   cursor: "pointer",
-                  marginRight: 12,
                 }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,7 +112,7 @@ const CustomFooter = () => (
       </Row>
     </motion.div>
 
-    <Divider style={{ margin: "40px 0 24px 0" }} />
+    <Divider style={{ margin: "40px 0 24px 0", borderColor: themeColors.accent }} />
 
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -139,7 +144,7 @@ const CustomFooter = () => (
               }}
               whileHover={{ scale: 1.1 }}
             />
-            <Text strong style={{ color: "#1a237e", fontSize: 16 }}>Sant Nirankari Mission</Text>
+            <Text strong style={{ color: themeColors.textDark, fontSize: 16 }}>Sant Nirankari Mission</Text>
           </Space>
         </Col>
 
@@ -151,8 +156,8 @@ const CustomFooter = () => (
 
         <Col xs={24} md={8} style={{ marginBottom: 12 }}>
           <Space>
-            <motion.a href="#" whileHover={{ scale: 1.1 }} style={{ color: "#1a237e", textDecoration: "none" }}>Sitemap</motion.a>
-            <motion.a href="#" whileHover={{ scale: 1.1 }} style={{ color: "#1a237e", textDecoration: "none" }}>Donate</motion.a>
+            <motion.a href="#" whileHover={{ scale: 1.1 }} style={{ color: themeColors.primary, textDecoration: "none" }}>Sitemap</motion.a>
+            <motion.a href="#" whileHover={{ scale: 1.1 }} style={{ color: themeColors.primary, textDecoration: "none" }}>Donate</motion.a>
           </Space>
         </Col>
       </Row>
@@ -176,8 +181,8 @@ const CustomFooter = () => (
         icon={<ArrowUpOutlined />}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{
-          boxShadow: "0 4px 16px rgba(26,35,126,0.12)",
-          background: "#1a237e",
+          boxShadow: `0 4px 16px ${themeColors.primary}66`,
+          background: themeColors.primary,
           color: "#fff",
           border: "none",
         }}

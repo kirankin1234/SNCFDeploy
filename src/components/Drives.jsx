@@ -11,7 +11,7 @@ import { FaHeartbeat, FaHandsHelping, FaTint, FaSmile, FaLeaf, FaAward, FaStar, 
 import { MdVolunteerActivism, MdOutlineBloodtype } from 'react-icons/md';
 import { GiHealthNormal } from 'react-icons/gi';
 import Lottie from 'lottie-react';
-import video from "../images/Blood_donation_reel.mp4";
+import video from "../images/blood_donation_reel.mp4";
 import projectImg from '../images/blood2.jpg';
 import blogImg1 from '../images/blood.jpeg';
 import blogImg2 from '../images/blood.jpeg';
@@ -124,243 +124,247 @@ const Drives = () => (
   <ConfigProvider theme={theme}>
     <div style={{ fontFamily: theme.token.fontFamily, background: theme.token.colorBgLayout, minHeight: '100vh' }}>
       {/* Hero Section */}
-     <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #f5fafd 0%, #e2f4fc 60%, #b3e0f7 100%)' }}>
-  <Card
-    style={{
-      border: 'none',
-      borderRadius: 0,
-      boxShadow: '0 8px 32px rgba(28,39,109,0.10)',
-      background: 'transparent',
-      marginBottom: 0,
-    }}
-    bodyStyle={{ padding: '56px 24px 36px' }}
-  >
-    <Row
-      gutter={[32, 32]}
-      align="middle"
-      justify="center"
-      style={{ maxWidth: 1200, margin: '0 auto', minHeight: 480 }}
-    >
-      {/* Left Video with Bordered Container */}
-      <Col xs={24} md={10} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        <Card
           style={{
-            width: '100%',
-            maxWidth: 420,
-            borderRadius: 24,
-            border: '2.5px solid #ffd166',
-            boxShadow: '0 8px 40px #d54e9144, 0 2px 8px #1c276d22',
-            background: '#fff',
-            overflow: 'hidden',
-            position: 'relative',
-            minHeight: 370, // for visual balance
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            border: 'none',
+            borderRadius: 0,
+            boxShadow: '0 8px 32px rgba(28,39,109,0.10)',
+            background: 'transparent',
+            marginBottom: 0,
           }}
+          bodyStyle={{ padding: '56px 24px 36px' }}
         >
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              height: '340px', // ~60% more than a typical 16:9 video at this width
-              objectFit: 'cover',
-              borderRadius: 18,
-              background: '#eaf3fc',
-              display: 'block',
-              boxShadow: '0 0 32px #ffd16633',
-              transition: 'box-shadow 0.3s',
-            }}
-          />
-          {/* Floating drop icon for realism */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 0.7, y: [24, 0, 24] }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
-            style={{
-              position: "absolute",
-              right: 18,
-              top: 18,
-              zIndex: 2,
-              fontSize: 36,
-              color: "#d54e91",
-              pointerEvents: "none"
-            }}
+          <Row
+            gutter={[32, 32]}
+            align="middle"
+            justify="center"
+            style={{ maxWidth: 1200, margin: '0 auto', minHeight: 480 }}
           >
-            <i className="fa fa-tint" />
-          </motion.div>
-        </motion.div>
-      </Col>
-      {/* Right Text Content */}
-      <Col xs={24} md={14} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-        <motion.div
-          initial={{ x: 60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-          >
-            <Title level={2} style={{
-              color: theme.token.colorText,
-              fontWeight: 800,
-              letterSpacing: 0.5,
-              marginBottom: 8,
-              background: 'linear-gradient(90deg, #ffd166 40%, #d54e91 60%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textAlign: 'justify'
-            }}>
-              The Gift of Life: A Million Drops, Countless Lives Saved
-            </Title>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.1 }}
-          >
-            <Paragraph style={{
-              color: theme.token.colorTextSecondary,
-              fontSize: 18,
-              fontWeight: 500,
-              marginBottom: 12,
-              textAlign: 'justify'
-            }}>
-              For over 38 years, devotees of the mission have held regular blood donation drives across India. Honouring the message of Baba Hardev Singh Ji Maharaj and continuing the Mission's legacy of healthcare support, since 2010, the Sant Nirankari Charitable Foundation has led these life-saving efforts, solidifying SNM's position as a leading blood donation organisation.
-            </Paragraph>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.3 }}
-          >
-            <Paragraph style={{
-              color: '#d54e91',
-              fontWeight: 700,
-              fontSize: 16,
-              marginBottom: 24,
-              textAlign: 'justify'
-            }}>
-              Blood should flow in veins, not in drains…
-            </Paragraph>
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: 1.08,
-              boxShadow: '0 0 0 8px #ffd16644, 0 2px 8px #1c276d33',
-              transition: { duration: 0.4 }
-            }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            style={{ display: 'inline-block', marginTop: 8 }}
-          >
-            <Button
-              type="primary"
-              size="large"
-              style={{
-                background: "rgba(255,255,255,0.18)",
-                border: "1.5px solid #ffd166",
-                color: "#1c276d",
-                borderRadius: 14,
-                fontWeight: 600,
-                fontSize: 18,
-                boxShadow: '0 2px 8px #ffd16633',
-                backdropFilter: 'blur(8px)',
-                transition: 'box-shadow 0.3s, background 0.3s',
-              }}
-            >
-              Donate Now
-            </Button>
-          </motion.div>
-        </motion.div>
-      </Col>
-    </Row>
-  </Card>
-
-  {/* Animated Lottie celebration */}
-  <motion.div
-    initial={{ opacity: 0, y: -30 }}
-    animate={{ opacity: 0.7, y: 0 }}
-    transition={{ duration: 2, delay: 0.5 }}
-    style={{
-      position: 'absolute',
-      right: 40,
-      top: 0,
-      width: 120,
-      zIndex: 1,
-      pointerEvents: 'none'
-    }}
-  >
-    <Lottie animationData={celebrationAnimation} loop />
-  </motion.div>
-
-  {/* Lower 'Did you know' Carousel */}
- <Card
-    bodyStyle={{
-      padding: '24px 0 0 0',
-      backgroundImage: 'linear-gradient(135deg, #b3e5fc, #4fc3f7, #03a9f4)',
-      color: '#fff',
-      borderRadius: 0,
-      position: 'relative'
-    }}
-    style={{ marginBottom: 0, border: "none" }}
-  >
-    <Row align="middle" justify="center" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
-      <Col xs={24} md={6} style={{ paddingLeft: 24, position: 'relative', zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0, y: -24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Title level={4} style={{ color: '#333333', margin: 0, textAlign: 'left' }}>
-            Do you know?
-          </Title>
-        </motion.div>
-      </Col>
-      <Col xs={24} md={18} style={{ position: 'relative' }}>
-        <div style={{ position: 'relative', width: '100%' }}>
-          <Carousel autoplay dotPosition="bottom" effect="fade">
-            {facts.map((fact, index) => (
+            {/* Left Video with Bordered Container */}
+            <Col xs={24} md={10} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 * index }}
-                style={{ minHeight: 48, display: 'flex', alignItems: 'flex-end' }}
+                initial={{ x: -60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.2 }}
+                style={{
+                  width: '100%',
+                  maxWidth: 420,
+                  borderRadius: 24,
+                  border: '2.5px solid #0ABAB5',
+                  boxShadow: '0 8px 40px #56DFCF44, 0 2px 8px #0ABAB522',
+                  background: '#fff',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  minHeight: 370,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
               >
-                <Paragraph
+                <video
+                  src={video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   style={{
-                    color: '#333333',
-                    margin: 0,
-                    fontSize: 16,
-                    padding: '0 16px 24px',
-                    textAlign: 'left',
-                    fontStyle: 'italic',
-                    letterSpacing: '0.01em',
                     width: '100%',
+                    height: '340px',
+                    objectFit: 'cover',
+                    borderRadius: 18,
+                    background: '#eaf3fc',
+                    display: 'block',
+                    boxShadow: '0 0 32px #56DFCF33',
+                    transition: 'box-shadow 0.3s',
+                  }}
+                />
+                {/* Floating drop icon */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 0.7, y: [24, 0, 24] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
+                  style={{
+                    position: "absolute",
+                    right: 18,
+                    top: 18,
+                    zIndex: 2,
+                    fontSize: 36,
+                    color: "#0ABAB5",
+                    pointerEvents: "none"
                   }}
                 >
-                  <FaLeaf style={{ marginRight: 8, color: '#5aa949' }} />
-                  {fact}
-                </Paragraph>
+                  <i className="fa fa-tint" />
+                </motion.div>
               </motion.div>
-            ))}
-          </Carousel>
-        </div>
-      </Col>
-    </Row>
-  </Card>
-</section>
+            </Col>
+
+            {/* Right Text Content */}
+            <Col xs={24} md={14} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+              <motion.div
+                initial={{ x: 60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.4 }}
+                style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.7 }}
+                >
+                  <Title level={2} style={{
+                    color: theme.token.colorText,
+                    fontWeight: 800,
+                    letterSpacing: 0.5,
+                    marginBottom: 8,
+                    background: 'linear-gradient(90deg, #0ABAB5 40%, #56DFCF 60%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textAlign: 'justify'
+                  }}>
+                    The Gift of Life: A Million Drops, Countless Lives Saved
+                  </Title>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.1 }}
+                >
+                  <Paragraph style={{
+                    color: theme.token.colorTextSecondary,
+                    fontSize: 18,
+                    fontWeight: 500,
+                    marginBottom: 12,
+                    textAlign: 'justify'
+                  }}>
+                    For over 38 years, devotees of the mission have held regular blood donation drives across India. Honouring the message of Baba Hardev Singh Ji Maharaj and continuing the Mission's legacy of healthcare support, since 2010, the Sant Nirankari Charitable Foundation has led these life-saving efforts, solidifying SNM's position as a leading blood donation organisation.
+                  </Paragraph>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.3 }}
+                >
+                  <Paragraph style={{
+                    color: '#0ABAB5',
+                    fontWeight: 700,
+                    fontSize: 16,
+                    marginBottom: 24,
+                    textAlign: 'justify'
+                  }}>
+                    Blood should flow in veins, not in drains…
+                  </Paragraph>
+                </motion.div>
+                <motion.div
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: '0 0 0 8px #ADEED944, 0 2px 8px #0ABAB533',
+                    transition: { duration: 0.4 }
+                  }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  style={{ display: 'inline-block', marginTop: 8 }}
+                >
+                  <Button
+                    type="primary"
+                    size="large"
+                    style={{
+                      background: "rgba(255,255,255,0.18)",
+                      border: "1.5px solid #0ABAB5",
+                      color: "#0ABAB5",
+                      borderRadius: 14,
+                      fontWeight: 600,
+                      fontSize: 18,
+                      boxShadow: '0 2px 8px #0ABAB533',
+                      backdropFilter: 'blur(8px)',
+                      transition: 'box-shadow 0.3s, background 0.3s',
+                    }}
+                  >
+                    Donate Now
+                  </Button>
+                </motion.div>
+              </motion.div>
+            </Col>
+          </Row>
+        </Card>
+
+        {/* Animated Lottie celebration */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 0.7, y: 0 }}
+          transition={{ duration: 2, delay: 0.5 }}
+          style={{
+            position: 'absolute',
+            right: 40,
+            top: 0,
+            width: 120,
+            zIndex: 1,
+            pointerEvents: 'none'
+          }}
+        >
+          <Lottie animationData={celebrationAnimation} loop />
+        </motion.div>
+
+        {/* Lower 'Did you know' Carousel */}
+        <Card
+          bodyStyle={{
+            padding: '24px 0 0 0',
+            backgroundImage: 'linear-gradient(135deg, #ADEED9, #56DFCF, #0ABAB5)',
+            color: '#fff',
+            borderRadius: 0,
+            position: 'relative'
+          }}
+          style={{ marginBottom: 0, border: "none" }}
+        >
+          <Row align="middle" justify="center" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
+            <Col xs={24} md={6} style={{ paddingLeft: 24, position: 'relative', zIndex: 2 }}>
+              <motion.div
+                initial={{ opacity: 0, y: -24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <Title level={4} style={{ color: '#333333', margin: 0, textAlign: 'left' }}>
+                  Do you know?
+                </Title>
+              </motion.div>
+            </Col>
+            <Col xs={24} md={18} style={{ position: 'relative' }}>
+              <div style={{ position: 'relative', width: '100%' }}>
+                <Carousel autoplay dotPosition="bottom" effect="fade">
+                  {facts.map((fact, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.2 * index }}
+                      style={{ minHeight: 48, display: 'flex', alignItems: 'flex-end' }}
+                    >
+                      <Paragraph
+                        style={{
+                          color: '#333333',
+                          margin: 0,
+                          fontSize: 16,
+                          padding: '0 16px 24px',
+                          textAlign: 'left',
+                          fontStyle: 'italic',
+                          letterSpacing: '0.01em',
+                          width: '100%',
+                        }}
+                      >
+                        <FaLeaf style={{ marginRight: 8, color: '#28B57B' }} />
+                        {fact}
+                      </Paragraph>
+                    </motion.div>
+                  ))}
+                </Carousel>
+              </div>
+            </Col>
+          </Row>
+        </Card>
+      </section>
+
+
+
 
 
 
@@ -372,7 +376,6 @@ const Drives = () => (
         style={{
           padding: '64px 24px',
           marginTop: 32,
-          background: 'linear-gradient(90deg, #f5fbfd 60%, #eaf3fc 100%)',
         }}
       >
         <Row
@@ -433,7 +436,7 @@ const Drives = () => (
                       percent={100}
                       showInfo={false}
                       strokeColor={stat.color}
-                      trailColor="#eaf3fc"
+                      trailColor="#FFEDF3"
                       style={{ marginTop: 16 }}
                     />
                   </motion.div>
@@ -444,13 +447,13 @@ const Drives = () => (
         </Row>
       </section>
 
+
       {/* Graph Section */}
       <Card
         style={{
           maxWidth: 1200,
           margin: '0 auto 32px',
           borderRadius: theme.token.borderRadius,
-          background: 'linear-gradient(120deg, #f5fafd 60%, #e2f4fc 100%)',
         }}
         title={
           <motion.div
@@ -458,11 +461,12 @@ const Drives = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <Title level={3} style={{ margin: 0 }}>Donation Impact Overview</Title>
+            <Title level={3} style={{ margin: 0, color: '#0ABAB5' }}>Donation Impact Overview</Title>
           </motion.div>
         }
       >
         <Row gutter={[24, 24]}>
+          {/* Yearly Donation Trends */}
           <Col xs={24} md={8}>
             <motion.div
               initial={{ x: -40, opacity: 0 }}
@@ -470,18 +474,27 @@ const Drives = () => (
               transition={{ duration: 0.7 }}
             >
               <Card bordered={false} title="Yearly Donation Trends">
-                <ResponsiveContainer width="100%" height={200}>
+                <ResponsiveContainer width="100%" height={220}>
                   <LineChart data={donationData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <CartesianGrid stroke="#E0E0E0" strokeDasharray="4 4" />
+                    <XAxis dataKey="name" stroke="#333" />
+                    <YAxis stroke="#333" />
                     <RechartsTooltip />
-                    <Line type="monotone" dataKey="donations" stroke="#E91E63" strokeWidth={3} dot={{ r: 6 }} activeDot={{ r: 8 }} />
+                    <Line
+                      type="monotone"
+                      dataKey="donations"
+                      stroke="#0ABAB5"
+                      strokeWidth={3}
+                      dot={{ r: 4, stroke: '#0ABAB5', strokeWidth: 2, fill: '#ffffff' }}
+                      activeDot={{ r: 6, stroke: '#0ABAB5', strokeWidth: 2, fill: '#ffffff' }}
+                    />
                   </LineChart>
                 </ResponsiveContainer>
               </Card>
             </motion.div>
           </Col>
+
+          {/* Donation Statistics */}
           <Col xs={24} md={8}>
             <motion.div
               initial={{ y: 40, opacity: 0 }}
@@ -489,15 +502,18 @@ const Drives = () => (
               transition={{ duration: 0.7 }}
             >
               <Card bordered={false} title="Donation Statistics">
-                <ResponsiveContainer width="100%" height={200}>
+                <ResponsiveContainer width="100%" height={220}>
                   <BarChart data={donationData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <CartesianGrid stroke="#E0E0E0" strokeDasharray="4 4" />
+                    <XAxis dataKey="name" stroke="#333" />
+                    <YAxis stroke="#333" />
                     <RechartsTooltip />
-                    <Bar dataKey="donations" fill="#9C27B0">
+                    <Bar dataKey="donations" radius={[8, 8, 0, 0]}>
                       {donationData.map((entry, index) => (
-                        <Cell key={`cell-bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                        <Cell
+                          key={`cell-bar-${index}`}
+                          fill={index % 2 === 0 ? '#0ABAB5' : '#56DFCF'}
+                        />
                       ))}
                     </Bar>
                   </BarChart>
@@ -505,6 +521,8 @@ const Drives = () => (
               </Card>
             </motion.div>
           </Col>
+
+          {/* Blood Type Distribution */}
           <Col xs={24} md={8}>
             <motion.div
               initial={{ x: 40, opacity: 0 }}
@@ -512,19 +530,22 @@ const Drives = () => (
               transition={{ duration: 0.7 }}
             >
               <Card bordered={false} title="Blood Type Distribution">
-                <ResponsiveContainer width="100%" height={200}>
+                <ResponsiveContainer width="100%" height={220}>
                   <PieChart>
                     <Pie
                       data={bloodTypeData}
                       cx="50%"
                       cy="50%"
-                      outerRadius={60}
-                      fill="#673AB7"
+                      outerRadius={70}
+                      fill="#0ABAB5"
                       dataKey="value"
                       label
                     >
                       {bloodTypeData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={index % 2 === 0 ? '#0ABAB5' : '#56DFCF'}
+                        />
                       ))}
                     </Pie>
                     <RechartsTooltip />
@@ -534,7 +555,8 @@ const Drives = () => (
             </motion.div>
           </Col>
         </Row>
-        {/* Radar Animation */}
+
+        {/* Radar Chart */}
         <Divider />
         <Row justify="center">
           <Col xs={24} md={12}>
@@ -544,12 +566,18 @@ const Drives = () => (
               transition={{ duration: 1.2, delay: 0.2 }}
             >
               <Card bordered={false} title="Foundation Impact Radar">
-                <ResponsiveContainer width="100%" height={220}>
+                <ResponsiveContainer width="100%" height={240}>
                   <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                    <Radar name="Impact" dataKey="A" stroke="#1c276d" fill="#59cbe8" fillOpacity={0.5} />
+                    <PolarGrid stroke="#E0E0E0" />
+                    <PolarAngleAxis dataKey="subject" stroke="#333" />
+                    <PolarRadiusAxis angle={30} domain={[0, 150]} stroke="#333" />
+                    <Radar
+                      name="Impact"
+                      dataKey="A"
+                      stroke="#0ABAB5"
+                      fill="#56DFCF"
+                      fillOpacity={0.6}
+                    />
                   </RadarChart>
                 </ResponsiveContainer>
               </Card>
@@ -558,8 +586,9 @@ const Drives = () => (
         </Row>
       </Card>
 
+
       {/* Project Details Section */}
-      <section style={{ background: '#f9fcff', padding: '64px 24px' }}>
+      <section style={{ background: '#ffffff', padding: '64px 24px' }}>
         <Row
           gutter={[48, 48]}
           style={{ maxWidth: 1200, margin: '0 auto' }}
@@ -578,7 +607,7 @@ const Drives = () => (
                 style={{
                   borderRadius: theme.token.borderRadius,
                   padding: '32px',
-                  boxShadow: '0 12px 32px rgba(0,0,0,0.06)',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
                 }}
                 bodyStyle={{ padding: 0 }}
               >
@@ -588,7 +617,7 @@ const Drives = () => (
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <Title level={3} style={{ color: theme.token.colorPrimary }}>
+                  <Title level={3} style={{ color: '#0ABAB5' }}>
                     About the Project
                   </Title>
                 </motion.div>
@@ -600,7 +629,13 @@ const Drives = () => (
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.2 }}
                   >
-                    <Paragraph style={{ color: theme.token.colorTextSecondary }}>
+                    <Paragraph
+                      style={{
+                        color: theme.token.colorTextSecondary,
+                        textAlign: 'justify',
+                        marginBottom: 16,
+                      }}
+                    >
                       {[
                         "Our blood donation project is dedicated to building a healthier future by ensuring a constant and safe blood supply for hospitals and patients.",
                         "We focus not only on collecting blood but also on raising awareness about the importance of regular donation. Our initiatives make the donation process easy, transparent, and rewarding.",
@@ -615,44 +650,45 @@ const Drives = () => (
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
-                  <Button type="link" href="#video-section" style={{ padding: 0 }}>
+                  <Button type="link" href="#video-section" style={{ padding: 0, color: '#0ABAB5', fontWeight: 600 }}>
                     Read More
                   </Button>
                 </motion.div>
               </Card>
             </motion.div>
           </Col>
-          {/* Right Image with animated pulse */}
+
+          {/* Right Image with Animated Pulse */}
           <Col xs={24} md={10}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               animate={{
-                y: [0, -8, 0],
-                scale: [1, 1.04, 1],
+                y: [0, -5, 0],
+                scale: [1, 1.02, 1],
                 boxShadow: [
-                  '0 10px 30px rgba(0,0,0,0.15)',
-                  '0 16px 40px #d54e9144',
-                  '0 10px 30px rgba(0,0,0,0.15)'
+                  '0 6px 18px rgba(0,0,0,0.10)',
+                  '0 12px 28px rgba(0,0,0,0.12)',
+                  '0 6px 18px rgba(0,0,0,0.10)'
                 ],
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
             >
-              <Lottie animationData={pulseAnimation} style={{ width: 60, marginBottom: -20 }} />
+              <Lottie animationData={pulseAnimation} style={{ width: 50, marginBottom: -20 }} />
               <img
                 src={projectImg}
                 alt="Project"
                 style={{
-                  width: '85%',
+                  width: '70%',
                   display: 'block',
                   margin: '0 auto',
                   borderRadius: theme.token.borderRadius,
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.10)',
                 }}
               />
             </motion.div>
@@ -660,13 +696,16 @@ const Drives = () => (
         </Row>
       </section>
 
+
+
       {/* Blogs Section */}
       <Card
         style={{
           maxWidth: 1200,
           margin: '0 auto 32px',
           borderRadius: theme.token.borderRadius,
-          background: 'linear-gradient(120deg, #f5fafd 60%, #e2f4fc 100%)',
+          background: 'linear-gradient(120deg, #f5fbfd 60%, #e2f4fc 100%)',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
         }}
         title={
           <motion.div
@@ -674,7 +713,7 @@ const Drives = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <Title level={3} style={{ margin: 0 }}>Latest Updates</Title>
+            <Title level={3} style={{ margin: 0, color: '#1c276d' }}>Latest Updates</Title>
           </motion.div>
         }
       >
@@ -698,18 +737,18 @@ const Drives = () => (
                   }
                   style={{ borderRadius: theme.token.borderRadius, minHeight: 350 }}
                 >
-                  <Title level={4} style={{ marginBottom: 8 }}>
+                  <Title level={4} style={{ marginBottom: 8, color: '#1c276d' }}>
                     {blog.title}
                   </Title>
-                  <Paragraph type="secondary" style={{ marginBottom: 4 }}>
+                  <Paragraph type="secondary" style={{ marginBottom: 4, color: '#5f6a8d' }}>
                     <FaGlobe style={{ marginRight: 6, color: '#59cbe8' }} />
                     {blog.date}
                   </Paragraph>
-                  <Paragraph>
+                  <Paragraph style={{ color: '#5f6a8d' }}>
                     {blog.desc}
                   </Paragraph>
                   <motion.div whileHover={{ x: 6 }}>
-                    <Button type="link" style={{ padding: 0 }}>Read More</Button>
+                    <Button type="link" style={{ padding: 0, color: '#d54e91', fontWeight: 600 }}>Read More</Button>
                   </motion.div>
                 </Card>
               </motion.div>
@@ -724,7 +763,8 @@ const Drives = () => (
           maxWidth: 1200,
           margin: '0 auto 32px',
           borderRadius: theme.token.borderRadius,
-          background: 'linear-gradient(120deg, #f5fafd 60%, #e2f4fc 100%)',
+          background: 'linear-gradient(120deg, #f5fbfd 60%, #e2f4fc 100%)',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
         }}
         title={
           <motion.div
@@ -732,7 +772,7 @@ const Drives = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <Title level={3} style={{ margin: 0 }}>What Our Donors Say</Title>
+            <Title level={3} style={{ margin: 0, color: '#1c276d' }}>What Our Donors Say</Title>
           </motion.div>
         }
       >
@@ -746,7 +786,7 @@ const Drives = () => (
             >
               <Row align="middle" justify="center">
                 <Col xs={24} md={4} style={{ textAlign: 'center', marginBottom: 16 }}>
-                  <Avatar src={t.img} size={80} style={{ boxShadow: '0 4px 16px #1c276d22' }} />
+                  <Avatar src={t.img} size={80} style={{ boxShadow: '0 4px 16px rgba(28,39,109,0.14)' }} />
                 </Col>
                 <Col xs={24} md={20}>
                   <motion.div
@@ -756,7 +796,7 @@ const Drives = () => (
                       background: '#ffffffcc',
                       borderRadius: 12,
                       padding: 24,
-                      boxShadow: '0 2px 8px #1c276d11',
+                      boxShadow: '0 2px 8px rgba(28,39,109,0.08)',
                       minHeight: 120,
                     }}
                   >
@@ -777,18 +817,18 @@ const Drives = () => (
       </Card>
 
       {/* Volunteer Call to Action */}
-      <section style={{ background: 'linear-gradient(135deg,#eaf6fa 60%,#f5fbfd 100%)', padding: '64px 0' }}>
+      <section style={{ background: 'linear-gradient(135deg, #eaf6fa 60%, #f5fbfd 100%)', padding: '64px 0' }}>
         <Row justify="center" align="middle">
           <Col xs={24} md={16}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              whileHover={{ scale: 1.04, boxShadow: '0 0 0 8px #59cbe822' }}
+              whileHover={{ scale: 1.04, boxShadow: '0 0 0 8px rgba(89,203,232,0.13)' }}
               style={{
                 background: '#fff',
                 borderRadius: 18,
-                boxShadow: '0 8px 32px #59cbe822',
+                boxShadow: '0 8px 32px rgba(89,203,232,0.13)',
                 padding: '48px 32px',
                 textAlign: 'center',
               }}
@@ -824,6 +864,7 @@ const Drives = () => (
           </Col>
         </Row>
       </section>
+
     </div>
   </ConfigProvider>
 );

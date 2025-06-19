@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Row, Col, Card, Pagination, Tag, Button } from "antd";
+import { Typography, Row, Col, Card, Pagination, Tag, Button, Tabs } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import Lottie from "lottie-react";
@@ -7,24 +7,29 @@ import { FaCamera, FaVideo, FaRegCalendarAlt, FaRegCommentDots, FaTimes, FaShare
 import galleryConfetti from "../images/confetti.json";
 import galleryCamera from "../images/camera.json";
 import galleryVideo from "../images/video.json";
-import video from "../images/Blood_donation_reel.mp4"; // Ensure this path is correct
+import video from "../images/blood_donation_reel.mp4";
 import gallery1 from "../images/gallery1.webp";
 import gallery2 from "../images/gallery2.jpg";
 import Amrit from "../images/Amrit.mp4";
 import img from "../images/blooddanation2.jpg";
 
 const { Title, Paragraph } = Typography;
+const pageSize = 6;
+const CARD_MEDIA_HEIGHT = 320;
 
+// 1. Your data must have a category field!
 const galleryData = [
   {
     type: "photo",
+    category: "latest",
     src: gallery1,
-    title: "",
-    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration , as they come together to redefine their surroundings and clean the holy River Yamuna.",
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
     date: "2025-06-01",
   },
   {
     type: "video",
+    category: "latest",
     src: video,
     title: "Awareness Drive",
     desc: "Highlights from our awareness drive in the city center.",
@@ -32,13 +37,23 @@ const galleryData = [
   },
   {
     type: "photo",
+    category: "past",
     src: gallery2,
     title: "Tree Plantation",
     desc: "Our youth volunteers planting trees for a greener tomorrow.",
     date: "2025-05-15",
   },
   {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
     type: "post",
+    category: "project",
     src: img,
     title: "Thank You Donors!",
     desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
@@ -46,30 +61,262 @@ const galleryData = [
   },
   {
     type: "video",
-    src: Amrit,
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+
+  {
+    type: "photo",
+    category: "latest",
+    src: gallery1,
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
+    date: "2025-06-01",
+  },
+  {
+    type: "video",
+    category: "latest",
+    src: video,
     title: "Awareness Drive",
     desc: "Highlights from our awareness drive in the city center.",
     date: "2025-05-28",
   },
   {
     type: "photo",
-     src: img,
-    title: "Blood Donation Camp",
-    desc: "Volunteers at our recent blood donation camp, spreading smiles and saving lives.",
+    category: "past",
+    src: gallery2,
+    title: "Tree Plantation",
+    desc: "Our youth volunteers planting trees for a greener tomorrow.",
+    date: "2025-05-15",
+  },
+  {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "post",
+    category: "project",
+    src: img,
+    title: "Thank You Donors!",
+    desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
+    date: "2025-05-10",
+  },
+  {
+    type: "video",
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+
+
+  {
+    type: "photo",
+    category: "latest",
+    src: gallery1,
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
     date: "2025-06-01",
   },
   {
+    type: "video",
+    category: "latest",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
     type: "photo",
+    category: "past",
+    src: gallery2,
+    title: "Tree Plantation",
+    desc: "Our youth volunteers planting trees for a greener tomorrow.",
+    date: "2025-05-15",
+  },
+  {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "post",
+    category: "project",
     src: img,
-    title: "Blood Donation Camp",
-    desc: "Volunteers at our recent blood donation camp, spreading smiles and saving lives.",
+    title: "Thank You Donors!",
+    desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
+    date: "2025-05-10",
+  },
+  {
+    type: "video",
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "latest",
+    src: gallery1,
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
     date: "2025-06-01",
   },
-  
-  // Add more items as needed for pagination
+  {
+    type: "video",
+    category: "latest",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "past",
+    src: gallery2,
+    title: "Tree Plantation",
+    desc: "Our youth volunteers planting trees for a greener tomorrow.",
+    date: "2025-05-15",
+  },
+  {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "post",
+    category: "project",
+    src: img,
+    title: "Thank You Donors!",
+    desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
+    date: "2025-05-10",
+  },
+  {
+    type: "video",
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "latest",
+    src: gallery1,
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
+    date: "2025-06-01",
+  },
+  {
+    type: "video",
+    category: "latest",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "past",
+    src: gallery2,
+    title: "Tree Plantation",
+    desc: "Our youth volunteers planting trees for a greener tomorrow.",
+    date: "2025-05-15",
+  },
+  {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "post",
+    category: "project",
+    src: img,
+    title: "Thank You Donors!",
+    desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
+    date: "2025-05-10",
+  },
+  {
+    type: "video",
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "latest",
+    src: gallery1,
+    title: "River Yamuna Cleanup",
+    desc: "This remarkable initiative showcases the tremendous impact of youth and community collaboration.",
+    date: "2025-06-01",
+  },
+  {
+    type: "video",
+    category: "latest",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "photo",
+    category: "past",
+    src: gallery2,
+    title: "Tree Plantation",
+    desc: "Our youth volunteers planting trees for a greener tomorrow.",
+    date: "2025-05-15",
+  },
+  {
+    type: "video",
+    category: "past",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  {
+    type: "post",
+    category: "project",
+    src: img,
+    title: "Thank You Donors!",
+    desc: "We extend heartfelt gratitude to all our blood donors. Your contribution saves lives.",
+    date: "2025-05-10",
+  },
+  {
+    type: "video",
+    category: "project",
+    src: video,
+    title: "Awareness Drive",
+    desc: "Highlights from our awareness drive in the city center.",
+    date: "2025-05-28",
+  },
+  // ...add more items with correct category
 ];
 
-const pageSize = 6;
+// 2. Define the filter function
+function filterByCategory(data, category) {
+  return data.filter(item => item.category === category);
+}
 
 const typeIcon = {
   photo: <FaCamera color="#59cbe8" size={22} />,
@@ -77,16 +324,10 @@ const typeIcon = {
   post: <FaRegCommentDots color="#ffd166" size={22} />,
 };
 
-const typeLottie = {
-  photo: galleryCamera,
-  video: galleryVideo,
-};
-
 const GalleryModal = ({ item, onClose }) => (
   <AnimatePresence>
     {item && (
       <motion.div
-        className="gallery-modal-backdrop"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -196,86 +437,11 @@ const GalleryModal = ({ item, onClose }) => (
   </AnimatePresence>
 );
 
-const CARD_MEDIA_HEIGHT = 320; // Increased for better vertical video display
-
-const GalleryContent = () => {
-  const [page, setPage] = useState(1);
-  const [modalItem, setModalItem] = useState(null);
-
-  // Pagination logic
-  const paginated = galleryData.slice((page - 1) * pageSize, page * pageSize);
+const GalleryTabGrid = ({ data, page, setPage, onCardClick }) => {
+  const paginated = data.slice((page - 1) * pageSize, page * pageSize);
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(to bottom, #f0f4f8, #dbeafe)",
-        minHeight: "100vh",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -60, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          textAlign: "center",
-          padding: "64px 24px 32px",
-          position: "relative",
-          overflow: "visible",
-        }}
-      >
-        <Parallax speed={-10}>
-          <Lottie
-            animationData={galleryConfetti}
-            style={{
-              position: "absolute",
-              top: -40,
-              left: 0,
-              width: "100%",
-              height: 180,
-              pointerEvents: "none",
-              zIndex: 0,
-            }}
-            loop
-          />
-        </Parallax>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <Title
-            level={1}
-            style={{
-              color: "#1c276d",
-              fontWeight: 800,
-              letterSpacing: 1,
-              marginBottom: 12,
-              background: "linear-gradient(90deg, #ffd166 40%, #d54e91 60%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Impact in Actions
-          </Title>
-          <Paragraph
-            style={{
-              fontSize: 20,
-              color: "#555",
-              fontWeight: 500,
-              maxWidth: 800,
-              margin: "0 auto",
-              textAlign: "center",
-            }}
-          >
-            Explore our journey in photos, videos, and stories. Every moment is a memory, every memory is a milestone.
-          </Paragraph>
-        </motion.div>
-      </motion.div>
-      {/* Gallery Grid */}
+    <>
       <Row
         gutter={[32, 32]}
         justify="center"
@@ -300,15 +466,22 @@ const GalleryContent = () => {
               }}
               viewport={{ once: true }}
               style={{ cursor: "pointer", width: "100%", display: "flex", flex: 1 }}
-              onClick={() => setModalItem(item)}
+              onClick={() => onCardClick(item)}
             >
+
+
+
+
+
+
+
               <Card
                 hoverable
                 style={{
                   borderRadius: "22px",
                   padding: 0,
                   textAlign: "center",
-                  boxShadow: "0 8px 32px #dbeafe99, 0 2px 8px #1c276d22, 0 1.5px 12px #fff8",
+                  boxShadow: "0 8px 32px rgba(0, 174, 239, 0.2), 0 2px 8px rgba(28, 39, 109, 0.13)",
                   background: "linear-gradient(135deg, #e0f2fe 60%, #f1f5f9 100%)",
                   minHeight: CARD_MEDIA_HEIGHT + 100,
                   height: "100%",
@@ -316,13 +489,14 @@ const GalleryContent = () => {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "flex-start",
-                  border: "2.5px solid #ffd166",
+                  border: "2.5px solid #00AEEF",
                   transition: "box-shadow 0.3s, border 0.3s",
                   position: "relative",
                   overflow: "hidden",
                 }}
                 bodyStyle={{ padding: 0, display: "flex", flexDirection: "column", flex: 1 }}
               >
+
                 {/* Animated overlay icon */}
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
@@ -434,6 +608,16 @@ const GalleryContent = () => {
                   </Paragraph>
                 </div>
               </Card>
+
+
+
+
+
+
+
+
+
+
             </motion.div>
           </Col>
         ))}
@@ -443,7 +627,7 @@ const GalleryContent = () => {
         <Pagination
           current={page}
           pageSize={pageSize}
-          total={galleryData.length}
+          total={data.length}
           onChange={setPage}
           showSizeChanger={false}
           style={{
@@ -455,6 +639,164 @@ const GalleryContent = () => {
           }}
         />
       </div>
+    </>
+  );
+};
+
+const GalleryTabs = () => {
+  const [activeTab, setActiveTab] = useState("latest");
+  const [page, setPage] = useState(1);
+  const [modalItem, setModalItem] = useState(null);
+
+  // 3. Use filterByCategory for each tab!
+  const tabData = {
+    latest: filterByCategory(galleryData, "latest"),
+    past: filterByCategory(galleryData, "past"),
+    project: filterByCategory(galleryData, "project"),
+  };
+
+  const handleTabChange = key => {
+    setActiveTab(key);
+    setPage(1);
+  };
+
+  return (
+    <div
+      style={{
+        background: "linear-gradient(to bottom, #f0f4f8, #dbeafe)",
+        minHeight: "100vh",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -60, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1 }}
+        style={{
+          textAlign: "center",
+          padding: "64px 24px 32px",
+          position: "relative",
+          overflow: "visible",
+        }}
+      >
+        <Parallax speed={-10}>
+          {/* <Lottie
+            animationData={galleryConfetti}
+            style={{
+              position: "absolute",
+              top: -40,
+              left: 0,
+              width: "100%",
+              height: 180,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+            loop
+          /> */}
+        </Parallax>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <Title
+            level={1}
+            style={{
+              color: "#1c276d",
+              fontWeight: 800,
+              letterSpacing: 1,
+              marginBottom: 12,
+              background: "linear-gradient(90deg, #22B573 0%, #00AEEF 50%, #F48FB1 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Impact in Actions
+          </Title>
+
+          <Paragraph
+            style={{
+              fontSize: 20,
+              color: "#555",
+              fontWeight: 500,
+              maxWidth: 800,
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            Explore our journey in photos, videos, and stories. Every moment is a memory, every memory is a milestone.
+          </Paragraph>
+        </motion.div>
+      </motion.div>
+      {/* Tabs */}
+      <Tabs
+        centered
+        activeKey={activeTab}
+        onChange={handleTabChange}
+        items={[
+          {
+            key: "latest",
+            label: (
+              <span>
+                <FaRegCommentDots style={{ marginRight: 8 }} />
+                Latest Activities
+              </span>
+            ),
+            children: (
+              <GalleryTabGrid
+                data={tabData.latest}
+                page={page}
+                setPage={setPage}
+                onCardClick={setModalItem}
+              />
+            ),
+          },
+          {
+            key: "past",
+            label: (
+              <span>
+                <FaRegCalendarAlt style={{ marginRight: 8 }} />
+                Past Events
+              </span>
+            ),
+            children: (
+              <GalleryTabGrid
+                data={tabData.past}
+                page={page}
+                setPage={setPage}
+                onCardClick={setModalItem}
+              />
+            ),
+          },
+          {
+            key: "project",
+            label: (
+              <span>
+                <FaCamera style={{ marginRight: 8 }} />
+                Projects
+              </span>
+            ),
+            children: (
+              <GalleryTabGrid
+                data={tabData.project}
+                page={page}
+                setPage={setPage}
+                onCardClick={setModalItem}
+              />
+            ),
+          },
+        ]}
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto 24px auto",
+          background: "#fff",
+          borderRadius: 16,
+          boxShadow: "0 2px 12px #dbeafe44",
+        }}
+      />
       {/* Modal */}
       <GalleryModal item={modalItem} onClose={() => setModalItem(null)} />
     </div>
@@ -463,7 +805,7 @@ const GalleryContent = () => {
 
 const Gallery = () => (
   <ParallaxProvider>
-    <GalleryContent />
+    <GalleryTabs />
   </ParallaxProvider>
 );
 

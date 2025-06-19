@@ -4,9 +4,40 @@ import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import backgroundAnimation from '../images/corner.json';
 import playButtonAnimation from '../images/button.json';
-import guidingForceImage from '../images/Mataji.webp';
+import guidingForceImage from '../images/mataji.webp';
+import img from '../images/member.jpeg'; // Placeholder for leader image
 
 const { Title, Paragraph } = Typography;
+const { Text } = Typography;
+
+const leaders = [
+  {
+    name: 'Shri President Name',
+    designation: 'President',
+    image: img,
+    quote: 'Leading with purpose and compassion.',
+  },
+  {
+    name: 'Shri Vice-President Name',
+    designation: 'Vice-President',
+    image: img,
+    quote: 'Empowering the future, one step at a time.',
+  },
+  {
+    name: 'Shri Member Name',
+    designation: 'Chief Member',
+    image: img,
+    quote: 'Serving with dedication and integrity.',
+  },
+];
+
+
+
+
+
+
+
+
 
 const GuidingForce = () => {
   const paragraphVariants = {
@@ -41,7 +72,6 @@ const GuidingForce = () => {
           zIndex: 0,
         }}
       >
-        <Lottie animationData={backgroundAnimation} loop />
       </motion.div>
 
       <Row
@@ -95,7 +125,7 @@ const GuidingForce = () => {
 
             {/* Play Button */}
             <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileHover={{ scale: 1.1, rotate: 0 }}
               whileTap={{ scale: 0.9 }}
               style={{ display: 'flex', alignItems: 'center', marginTop: '2rem', cursor: 'pointer' }}
             >
@@ -104,9 +134,80 @@ const GuidingForce = () => {
                 Watch Video
               </Button>
             </motion.div>
+
           </motion.div>
         </Col>
       </Row>
+
+
+      <section style={{ padding: '4rem 1rem', backgroundColor: '#f9f9f9' }}>
+        <Title level={2} style={{ textAlign: 'center', marginBottom: '3rem', color: '#1c276d' }}>
+          Our Pillars of Inspiration
+        </Title>
+
+        <Row gutter={[24, 24]} justify="center" style={{ maxWidth: 1200, margin: '0 auto' }}>
+          {leaders.map((leader, index) => (
+            <Col key={index} xs={24} sm={12} md={8} style={{ display: 'flex', justifyContent: 'center' }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                style={{
+                  backgroundColor: '#fff',
+                  padding: '2rem',
+                  borderRadius: '1.5rem',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                  textAlign: 'center',
+                  width: '100%',
+                  maxWidth: '320px',
+                }}
+              >
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    style={{
+                      width: '120px',
+                      height: '120px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      border: '4px solid #1c276d',
+                      boxShadow: '0 0 10px rgba(0, 0, 0, 0.15)',
+                    }}
+                  />
+                </div>
+                <Title level={4} style={{ color: '#1c276d', marginBottom: '0.5rem' }}>
+                  {leader.name}
+                </Title>
+                <Text style={{ display: 'block', marginBottom: '1rem', color: '#555' }}>
+                  {leader.designation}
+                </Text>
+                <blockquote style={{ fontStyle: 'italic', color: '#888' }}>
+                  "{leader.quote}"
+                </blockquote>
+              </motion.div>
+            </Col>
+          ))}
+        </Row>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Detailed Mission Section */}
       <motion.div
