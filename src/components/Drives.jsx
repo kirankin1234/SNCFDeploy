@@ -11,7 +11,7 @@ import { FaHeartbeat, FaHandsHelping, FaTint, FaSmile, FaLeaf, FaAward, FaStar, 
 import { MdVolunteerActivism, MdOutlineBloodtype } from 'react-icons/md';
 import { GiHealthNormal } from 'react-icons/gi';
 import Lottie from 'lottie-react';
-import video from "../images/blood_donation_reel.mp4";
+import video from "../images/Blood_donation_reel.mp4";
 import projectImg from '../images/blood2.jpg';
 import blogImg1 from '../images/blood.jpeg';
 import blogImg2 from '../images/blood.jpeg';
