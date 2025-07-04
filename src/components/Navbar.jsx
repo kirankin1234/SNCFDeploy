@@ -23,7 +23,9 @@ import {
   PhoneOutlined,
   FlagOutlined
 } from '@ant-design/icons';
-import logoImg from "../images/logo.webp";
+import logoImg from "../assets/newlogo.jpg";
+// import logoImg from "../assets/newlogo.jpg";
+
 
 const { Header } = Layout;
 
@@ -75,11 +77,11 @@ const Navbar = () => {
           justifyContent: 'flex-end'
         }}
       >
-        <Menu.Item key="home" icon={<HomeOutlined />}>
+        <Menu.Item key="home" icon={<HomeOutlined style={{ marginRight: -4 }} />}>
           <Link to="/">Home</Link>
         </Menu.Item>
 
-        <Menu.SubMenu key="projects" icon={<ProjectOutlined />} title="Projects">
+        <Menu.SubMenu key="projects" icon={<ProjectOutlined style={{ marginRight: -4 }} />} title="Projects">
           <Menu.Item key="health-city">
             <a href="/drives">Sant Nirankari Health City</a>
           </Menu.Item>
@@ -94,7 +96,7 @@ const Navbar = () => {
           </Menu.Item>
         </Menu.SubMenu>
 
-        <Menu.SubMenu key="values" icon={<StarOutlined />} title="Core Values">
+        <Menu.SubMenu key="values" icon={<StarOutlined style={{ marginRight: -4 }} />} title="Core Values">
           <Menu.SubMenu key="heal" title="Heal">
             <Menu.Item key="blood-donation">
               <a href="/projects">Blood Donation Drive</a>
@@ -138,33 +140,33 @@ const Navbar = () => {
           </Menu.SubMenu>
         </Menu.SubMenu>
 
-        <Menu.Item key="gallery" icon={<PictureOutlined />}>
+        <Menu.Item key="gallery" icon={<PictureOutlined style={{ marginRight: -4 }} />}>
           <a href="/gallery">Gallery</a>
         </Menu.Item>
 
-        <Menu.SubMenu key="who-we-are" icon={<TeamOutlined />} title="Who We Are">
-          <Menu.Item key="about-us" icon={<InfoCircleOutlined />}>
+        <Menu.SubMenu key="who-we-are" icon={<TeamOutlined style={{ marginRight: -4 }} />} title="Who We Are">
+          <Menu.Item key="about-us" icon={<InfoCircleOutlined style={{ marginRight: -4 }} />}>
             <Link to="/about-us">About Us</Link>
           </Menu.Item>
-          <Menu.Item key="mission-vision" icon={<FlagOutlined />}>
+          <Menu.Item key="mission-vision" icon={<FlagOutlined style={{ marginRight: -4 }} />}>
             <Link to="/mission-vision">Mission & Vision</Link>
           </Menu.Item>
-          <Menu.Item key="honors-recognitions" icon={<TrophyOutlined />}>
+          <Menu.Item key="honors-recognitions" icon={<TrophyOutlined style={{ marginRight: -4 }} />}>
             <Link to="/honours">Honors and Recognitions</Link>
           </Menu.Item>
-          <Menu.Item key="our-partners" icon={<UsergroupAddOutlined />}>
+          <Menu.Item key="our-partners" icon={<UsergroupAddOutlined style={{ marginRight: -4 }} />}>
             <Link to="#">Our Partners</Link>
           </Menu.Item>
-          <Menu.Item key="contact" icon={<PhoneOutlined />}>
+          <Menu.Item key="contact" icon={<PhoneOutlined style={{ marginRight: -4 }} />}>
             <Link to="#">Contact</Link>
           </Menu.Item>
         </Menu.SubMenu>
 
-        <Menu.Item key="guiding-force" icon={<BulbOutlined />}>
+        <Menu.Item key="guiding-force" icon={<BulbOutlined style={{ marginRight: -4 }} />}>
           <a href="/guiding-force">Our Guiding Force</a>
         </Menu.Item>
 
-        <Menu.Item key="careers" icon={<SolutionOutlined />}>
+        <Menu.Item key="careers" icon={<SolutionOutlined style={{ marginRight: -4 }} />}>
           <Space>
             <a href="#" style={{ fontWeight: 'bold' }}>Careers</a>
             <Badge count="New" style={{ backgroundColor: '#white' }} />

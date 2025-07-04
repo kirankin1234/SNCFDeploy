@@ -11,7 +11,7 @@ import { FaHeartbeat, FaHandsHelping, FaTint, FaSmile, FaLeaf, FaAward, FaStar, 
 import { MdVolunteerActivism, MdOutlineBloodtype } from 'react-icons/md';
 import { GiHealthNormal } from 'react-icons/gi';
 import Lottie from 'lottie-react';
-import video from "../images/Blood_donation_reel.mp4";
+import video from "../images/blood_donation_reel.mp4";
 import projectImg from '../images/blood2.jpg';
 import blogImg1 from '../images/blood.jpeg';
 import blogImg2 from '../images/blood.jpeg';
@@ -257,31 +257,30 @@ const Drives = () => (
                   </Paragraph>
                 </motion.div>
                 <motion.div
-                  whileHover={{
-                    scale: 1.08,
-                    boxShadow: '0 0 0 8px #ADEED944, 0 2px 8px #0ABAB533',
-                    transition: { duration: 0.4 }
-                  }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                  style={{ display: 'inline-block', marginTop: 8 }}
+                // whileHover={{
+                //   scale: 1.08,
+                //   boxShadow: '0 0 0 8px #ADEED944, 0 2px 8px #0ABAB533',
+                //   transition: { duration: 0.4 }
+                // }}
+                // transition={{ type: 'spring', stiffness: 300 }}
+                // style={{ display: 'inline-block', marginTop: 8 }}
                 >
                   <Button
                     type="primary"
                     size="large"
                     style={{
-                      background: "rgba(255,255,255,0.18)",
+                      background: "transparent",
                       border: "1.5px solid #0ABAB5",
                       color: "#0ABAB5",
                       borderRadius: 14,
                       fontWeight: 600,
                       fontSize: 18,
-                      boxShadow: '0 2px 8px #0ABAB533',
-                      backdropFilter: 'blur(8px)',
-                      transition: 'box-shadow 0.3s, background 0.3s',
+                      // transition: "background 0.2s, color 0.2s",
                     }}
                   >
                     Donate Now
                   </Button>
+
                 </motion.div>
               </motion.div>
             </Col>
@@ -302,7 +301,7 @@ const Drives = () => (
             pointerEvents: 'none'
           }}
         >
-          <Lottie animationData={celebrationAnimation} loop />
+          {/* <Lottie animationData={celebrationAnimation} loop /> */}
         </motion.div>
 
         {/* Lower 'Did you know' Carousel */}
@@ -395,7 +394,7 @@ const Drives = () => (
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <Card
                   bordered={false}
@@ -599,7 +598,7 @@ const Drives = () => (
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <Card
@@ -614,7 +613,7 @@ const Drives = () => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <Title level={3} style={{ color: '#0ABAB5' }}>
@@ -626,7 +625,7 @@ const Drives = () => (
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.2 }}
                   >
                     <Paragraph
@@ -647,7 +646,7 @@ const Drives = () => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
                   <Button type="link" href="#video-section" style={{ padding: 0, color: '#0ABAB5', fontWeight: 600 }}>
@@ -661,25 +660,11 @@ const Drives = () => (
           {/* Right Image with Animated Pulse */}
           <Col xs={24} md={10}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              animate={{
-                y: [0, -5, 0],
-                scale: [1, 1.02, 1],
-                boxShadow: [
-                  '0 6px 18px rgba(0,0,0,0.10)',
-                  '0 12px 28px rgba(0,0,0,0.12)',
-                  '0 6px 18px rgba(0,0,0,0.10)'
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
+              initial={false}
+              animate={false}
+              transition={false}
             >
-              <Lottie animationData={pulseAnimation} style={{ width: 50, marginBottom: -20 }} />
+              {/* <Lottie animationData={pulseAnimation} style={{ width: 50, marginBottom: -20 }} /> */}
               <img
                 src={projectImg}
                 alt="Project"
@@ -693,6 +678,7 @@ const Drives = () => (
               />
             </motion.div>
           </Col>
+
         </Row>
       </section>
 
@@ -833,7 +819,7 @@ const Drives = () => (
                 textAlign: 'center',
               }}
             >
-              <Lottie animationData={celebrationAnimation} style={{ width: 80, margin: '0 auto 16px' }} />
+              {/* <Lottie animationData={celebrationAnimation} style={{ width: 80, margin: '0 auto 16px' }} /> */}
               <Title level={2} style={{ color: '#1c276d' }}>
                 <FaHandsHelping style={{ marginRight: 10, color: '#5aa949' }} />
                 Join Our Next Drive!

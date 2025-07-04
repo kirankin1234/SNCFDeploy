@@ -90,7 +90,7 @@ const AboutUs = () => {
             initial={{ x: -80, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, type: "spring", stiffness: 90 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <Card
               style={{
@@ -151,7 +151,7 @@ const AboutUs = () => {
             initial={{ x: 80, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, type: "spring", stiffness: 90 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             style={{
               borderRadius: "16px",
               overflow: "hidden",
@@ -189,7 +189,7 @@ const AboutUs = () => {
                   whileInView="visible"
                   whileHover="hover"
                   variants={cardVariants}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                 >
                   <Card
                     style={{

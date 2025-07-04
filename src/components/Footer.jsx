@@ -3,6 +3,7 @@ import { Layout, Row, Col, Typography, Space, Button, Divider } from "antd";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaRss } from "react-icons/fa";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
+import xIcon from "../assets/xicon.png";
 import snmLogo from "../images/logo.webp";
 
 const { Footer } = Layout;
@@ -19,11 +20,17 @@ const themeColors = {
 
 const socialLinks = [
   { icon: <FaFacebookF />, href: "#", label: "Facebook", color: "#4267B2" },
-  { icon: <FaTwitter />, href: "#", label: "Twitter", color: "#1DA1F2" },
+  {
+    icon: <img src={xIcon} alt="X" style={{ width: "1em", height: "1em", verticalAlign: "middle" }} />,
+    href: "#",
+    label: "X",
+    color: "#000000"
+  },
   { icon: <FaYoutube />, href: "#", label: "YouTube", color: "#FF0000" },
   { icon: <FaInstagram />, href: "#", label: "Instagram", color: "#C13584" },
   { icon: <FaRss />, href: "#", label: "RSS", color: "#FFA500" },
 ];
+
 
 const CustomFooter = () => (
   <Footer

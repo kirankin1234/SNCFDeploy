@@ -368,7 +368,7 @@ const HomePage = () => (
               display: 'inline-flex',
               alignItems: 'center',
               marginRight: '50px',
-              color: '#1890ff',
+              color: 'blue',
               textDecoration: 'none',
               fontSize: '17px',
               fontWeight: '600',
@@ -454,44 +454,62 @@ const HomePage = () => (
                   setSeeMoreHover(false);
                 }}
               >
-                <Card
-                  hoverable
+                <div
+                  className="card-container"
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    transition: "transform 0.3s ease",
+                    filter: popupVisible ? "blur(4px)" : "none",
+                    transition: "filter 0.3s ease",
                   }}
-                  cover={
-                    <div style={{ padding: "1rem", textAlign: "center" }}>
-                      {item.icon}
-                    </div>
-                  }
                 >
-                  <Card.Meta
-                    title={
-                      <Typography.Title
-                        level={4}
-                        style={{ color: theme.token.colorPrimary, fontWeight: 700, textAlign: "center", marginTop: "-10px" }}
+                  <Card
+                    hoverable
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      transition: "transform 0.3s ease",
+                    }}
+                    cover={
+                      <div
+                        style={{
+                          padding: "1rem",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          textAlign: "center",
+                          height: "120px", // Optional: give a consistent height for vertical centering
+                        }}
                       >
-                        {item.title}
-                      </Typography.Title>
+                        {item.icon}
+                      </div>
                     }
-                    description={
-                      <Typography.Text
-                        style={{ color: theme.token.colorTextSecondary, display: "block", textAlign: "center" }}
-                      >
-                        {item.description}
-                      </Typography.Text>
-                    }
-                  />
-                  <Divider style={{ margin: "1rem 0" }} />
-                  <Typography.Paragraph style={{ flexGrow: 1, textAlign: "center" }}>
-                    {item.content}
-                  </Typography.Paragraph>
-                </Card>
+
+                  >
+                    <Card.Meta
+                      title={
+                        <Typography.Title
+                          level={4}
+                          style={{ color: theme.token.colorPrimary, fontWeight: 700, textAlign: "center", marginTop: "-10px" }}
+                        >
+                          {item.title}
+                        </Typography.Title>
+                      }
+                      description={
+                        <Typography.Text
+                          style={{ color: theme.token.colorTextSecondary, display: "block", textAlign: "center" }}
+                        >
+                          {item.description}
+                        </Typography.Text>
+                      }
+                    />
+                    <Divider style={{ margin: "1rem 0" }} />
+                    <Typography.Paragraph style={{ flexGrow: 1, textAlign: "center" }}>
+                      {item.content}
+                    </Typography.Paragraph>
+                  </Card>
+                </div>
 
                 {/* Chat Bubble Popup */}
                 <div
@@ -499,9 +517,10 @@ const HomePage = () => (
                     opacity: popupVisible ? 1 : 0,
                     pointerEvents: popupVisible ? "auto" : "none",
                     position: 'absolute',
-                    top: '-16px',
-                    right: '-16px',
-                    width: '300px',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
                     background: missionColors[catKey],
                     borderRadius: '24px',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
@@ -565,6 +584,7 @@ const HomePage = () => (
                 </div>
               </div>
             </Col>
+
           );
         })}
         <Col span={24} style={{ textAlign: "center", marginTop: "2rem" }}>

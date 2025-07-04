@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import backgroundAnimation from '../images/corner.json';
 import playButtonAnimation from '../images/button.json';
-import guidingForceImage from '../images/Mataji.webp';
+import guidingForceImage from '../images/mataji.webp';
 import img from '../images/member.jpeg'; // Placeholder for leader image
 
 const { Title, Paragraph } = Typography;
@@ -152,7 +152,7 @@ const GuidingForce = () => {
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 style={{
                   backgroundColor: '#fff',
@@ -243,7 +243,7 @@ const GuidingForce = () => {
             custom={index}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             variants={paragraphVariants}
           >
             <Paragraph

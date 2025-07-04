@@ -7,7 +7,7 @@ import { FaCamera, FaVideo, FaRegCalendarAlt, FaRegCommentDots, FaTimes, FaShare
 import galleryConfetti from "../images/confetti.json";
 import galleryCamera from "../images/camera.json";
 import galleryVideo from "../images/video.json";
-import video from "../images/Blood_donation_reel.mp4";
+import video from "../images/blood_donation_reel.mp4";
 import gallery1 from "../images/gallery1.webp";
 import gallery2 from "../images/gallery2.jpg";
 import Amrit from "../images/Amrit.mp4";
@@ -464,7 +464,7 @@ const GalleryTabGrid = ({ data, page, setPage, onCardClick }) => {
                 boxShadow: "0 8px 32px #d54e9144",
                 transition: { duration: 0.3 },
               }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               style={{ cursor: "pointer", width: "100%", display: "flex", flex: 1 }}
               onClick={() => onCardClick(item)}
             >
