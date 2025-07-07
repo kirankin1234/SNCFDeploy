@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Row, Col, Button } from "antd";
 import { motion } from "framer-motion";
-import Typical from "react-typical";
+// import Typical from "react-typical";
 import Lottie from "lottie-react";
 
 // Lottie animations
