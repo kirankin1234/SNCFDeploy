@@ -464,7 +464,7 @@ const GalleryTabGrid = ({ data, page, setPage, onCardClick }) => {
                 boxShadow: "0 8px 32px #d54e9144",
                 transition: { duration: 0.3 },
               }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               style={{ cursor: "pointer", width: "100%", display: "flex", flex: 1 }}
               onClick={() => onCardClick(item)}
             >

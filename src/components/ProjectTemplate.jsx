@@ -249,6 +249,7 @@ const ProjectTemplate = () => (
             src={img}
             alt="Blood Donor Hero"
             style={{
+
               width: '100%',
               borderRadius: 24,
               boxShadow: '0 8px 32px rgba(0,0,0,0.16)',
@@ -612,25 +613,26 @@ const ProjectTemplate = () => (
     {/* GALLERY / NEWS-BLOGS SECTION */}
     <section
       style={{
-        background: '#f5fbfd', // Soft bluish background (lighter and more aligned with theme)
-        padding: '4rem 1.5rem',
+        background: '#f5fbfd',
+        padding: '4rem 1.2rem', // Slightly reduced padding
       }}
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        style={{ textAlign: 'center', marginBottom: '2.5rem' }}
+        style={{ textAlign: 'center', marginBottom: '2.2rem' }}
+        viewport={{ once: true }}
       >
         <Title level={2} style={{ color: '#0ABAB5' }}>
           Latest News & Stories
         </Title>
-        <Paragraph style={{ color: '#5f6a8d', fontSize: 17 }}>
+        <Paragraph style={{ color: '#5f6a8d', fontSize: 17, maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           Explore our recent events, inspiring journeys, and impactful moments from across the nation.
         </Paragraph>
       </motion.div>
 
-      <Row gutter={[32, 32]} justify="center">
+      <Row gutter={[24, 28]} justify="center"> {/* Reduced gap */}
         {news.map((item, idx) => (
           <Col xs={24} sm={12} md={8} key={item.title}>
             <motion.div
@@ -641,12 +643,13 @@ const ProjectTemplate = () => (
                 boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
                 background: '#fff',
                 margin: '0 auto',
-                maxWidth: 400,
+                maxWidth: 380, // Reduced maxWidth for more compact layout
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
                 border: '2px solid #d6eaf8',
               }}
+              viewport={{ once: true }}
             >
               <img
                 src={item.image}
@@ -659,7 +662,7 @@ const ProjectTemplate = () => (
               />
               <div
                 style={{
-                  padding: '1.5rem 1.2rem 1.2rem 1.2rem',
+                  padding: '1.2rem 1.1rem 1.1rem 1.1rem',
                   flex: 1,
                   display: 'flex',
                   flexDirection: 'column',
@@ -672,8 +675,8 @@ const ProjectTemplate = () => (
                   style={{
                     color: '#5f6a8d',
                     fontSize: 15,
-                    marginBottom: 14,
-                    textAlign: 'justify', // Added for a better reading experience
+                    marginBottom: 12,
+                    textAlign: 'justify', // Proper justify alignment
                   }}
                 >
                   {item.excerpt}
@@ -689,12 +692,7 @@ const ProjectTemplate = () => (
                 >
                   <span
                     style={{
-                      color:
-                        idx % 3 === 0
-                          ? '#0ABAB5' // Heal (Primary theme color)
-                          : idx % 3 === 1
-                            ? '#0ABAB5' // Enrich
-                            : '#0ABAB5', // Empower
+                      color: '#0ABAB5', // Consistent blue color
                       fontWeight: 600,
                     }}
                   >
@@ -704,12 +702,7 @@ const ProjectTemplate = () => (
                   <Button
                     type="link"
                     style={{
-                      color:
-                        idx % 3 === 0
-                          ? '#0ABAB5'
-                          : idx % 3 === 1
-                            ? '#d54e91'
-                            : '#ffd166',
+                      color: '#0ABAB5', // Unified Read More color
                       fontWeight: 600,
                       padding: 0,
                       fontSize: 15,
@@ -725,6 +718,7 @@ const ProjectTemplate = () => (
         ))}
       </Row>
     </section>
+
 
 
 

@@ -7,7 +7,7 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from 'recharts';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaHeartbeat, FaHandsHelping, FaTint, FaSmile, FaLeaf, FaAward, FaStar, FaGlobe, FaChartLine } from 'react-icons/fa';
+import { FaHeartbeat, FaHandsHelping, FaTint, FaSmile, FaLeaf, FaAward, FaStar, FaGlobe, FaChartLine, FaCalendarAlt, FaArrowRight, FaRegCalendarAlt } from 'react-icons/fa';
 import { MdVolunteerActivism, MdOutlineBloodtype } from 'react-icons/md';
 import { GiHealthNormal } from 'react-icons/gi';
 import Lottie from 'lottie-react';
@@ -147,6 +147,8 @@ const Drives = () => (
                 initial={{ x: -60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.2, delay: 0.2 }}
+                viewport={{ once: true }}
+
                 style={{
                   width: '100%',
                   maxWidth: 420,
@@ -307,59 +309,78 @@ const Drives = () => (
         {/* Lower 'Did you know' Carousel */}
         <Card
           bodyStyle={{
-            padding: '24px 0 0 0',
-            backgroundImage: 'linear-gradient(135deg, #ADEED9, #56DFCF, #0ABAB5)',
+            padding: '32px 0 32px 0',
+            backgroundImage: 'linear-gradient(120deg, #ADEED9 0%, #56DFCF 50%, #0ABAB5 100%)',
             color: '#fff',
             borderRadius: 0,
-            position: 'relative'
+            position: 'relative',
+            boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
           }}
-          style={{ marginBottom: 0, border: "none" }}
+          style={{
+            marginBottom: 0,
+            border: "none",
+          }}
         >
-          <Row align="middle" justify="center" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
-            <Col xs={24} md={6} style={{ paddingLeft: 24, position: 'relative', zIndex: 2 }}>
+          <Row
+            align="middle"
+            justify="center"
+            style={{
+              maxWidth: 1200,
+              margin: '0 auto',
+              position: 'relative',
+              padding: '0 24px',
+            }}
+          >
+            <Col xs={24} md={6} style={{ position: 'relative', zIndex: 2 }}>
               <motion.div
                 initial={{ opacity: 0, y: -24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <Title level={4} style={{ color: '#333333', margin: 0, textAlign: 'left' }}>
+                <Title level={4} style={{ color: '#1C276D', margin: 0, textAlign: 'left', letterSpacing: '0.5px' }}>
                   Do you know?
                 </Title>
               </motion.div>
             </Col>
+
             <Col xs={24} md={18} style={{ position: 'relative' }}>
-              <div style={{ position: 'relative', width: '100%' }}>
-                <Carousel autoplay dotPosition="bottom" effect="fade">
-                  {facts.map((fact, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: 0.2 * index }}
-                      style={{ minHeight: 48, display: 'flex', alignItems: 'flex-end' }}
+              <Carousel autoplay dotPosition="right" effect="fade">
+                {facts.map((fact, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.2 * index }}
+                    style={{
+                      minHeight: 64,
+                      display: 'flex',
+                      alignItems: 'center',
+                      width: '100%',
+                    }}
+                  >
+                    <Paragraph
+                      style={{
+                        color: '#1C276D',
+                        margin: 0,
+                        fontSize: 16,
+                        padding: '0 16px',
+                        textAlign: 'left',
+                        fontStyle: 'italic',
+                        letterSpacing: '0.02em',
+                        lineHeight: 1.6,
+                        width: '100%',
+                      }}
                     >
-                      <Paragraph
-                        style={{
-                          color: '#333333',
-                          margin: 0,
-                          fontSize: 16,
-                          padding: '0 16px 24px',
-                          textAlign: 'left',
-                          fontStyle: 'italic',
-                          letterSpacing: '0.01em',
-                          width: '100%',
-                        }}
-                      >
-                        <FaLeaf style={{ marginRight: 8, color: '#28B57B' }} />
-                        {fact}
-                      </Paragraph>
-                    </motion.div>
-                  ))}
-                </Carousel>
-              </div>
+                      <FaLeaf style={{ marginRight: 8, color: '#28B57B', fontSize: 18 }} />
+                      {fact}
+                    </Paragraph>
+                  </motion.div>
+                ))}
+              </Carousel>
             </Col>
           </Row>
         </Card>
+
       </section>
 
 
@@ -394,7 +415,7 @@ const Drives = () => (
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
               >
                 <Card
                   bordered={false}
@@ -459,6 +480,8 @@ const Drives = () => (
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+
           >
             <Title level={3} style={{ margin: 0, color: '#0ABAB5' }}>Donation Impact Overview</Title>
           </motion.div>
@@ -598,7 +621,7 @@ const Drives = () => (
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <Card
@@ -613,7 +636,7 @@ const Drives = () => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <Title level={3} style={{ color: '#0ABAB5' }}>
@@ -625,7 +648,7 @@ const Drives = () => (
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.2 }}
                   >
                     <Paragraph
@@ -646,7 +669,7 @@ const Drives = () => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
                   <Button type="link" href="#video-section" style={{ padding: 0, color: '#0ABAB5', fontWeight: 600 }}>
@@ -684,7 +707,6 @@ const Drives = () => (
 
 
 
-      {/* Blogs Section */}
       <Card
         style={{
           maxWidth: 1200,
@@ -710,31 +732,57 @@ const Drives = () => (
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: idx * 0.2 }}
+                style={{ height: '100%' }}
               >
                 <Card
                   hoverable
+                  style={{
+                    borderRadius: theme.token.borderRadius,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    minHeight: 400,
+                  }}
                   cover={
                     <motion.img
                       alt={`Blog ${idx + 1}`}
                       src={blog.img}
-                      style={{ height: 180, objectFit: 'cover', borderRadius: 10 }}
-                      whileHover={{ scale: 1.05, filter: 'brightness(1.15)' }}
+                      style={{
+                        height: 200,
+                        objectFit: 'cover',
+                        borderRadius: '10px 10px 0 0',
+                        width: '100%',
+                      }}
+                      whileHover={{ filter: 'brightness(1.1)' }}
                     />
                   }
-                  style={{ borderRadius: theme.token.borderRadius, minHeight: 350 }}
                 >
-                  <Title level={4} style={{ marginBottom: 8, color: '#1c276d' }}>
-                    {blog.title}
-                  </Title>
-                  <Paragraph type="secondary" style={{ marginBottom: 4, color: '#5f6a8d' }}>
-                    <FaGlobe style={{ marginRight: 6, color: '#59cbe8' }} />
-                    {blog.date}
-                  </Paragraph>
-                  <Paragraph style={{ color: '#5f6a8d' }}>
-                    {blog.desc}
-                  </Paragraph>
-                  <motion.div whileHover={{ x: 6 }}>
-                    <Button type="link" style={{ padding: 0, color: '#d54e91', fontWeight: 600 }}>Read More</Button>
+                  <div style={{ flexGrow: 1 }}>
+                    <Title level={4} style={{ marginBottom: 8, color: '#1c276d' }}>
+                      {blog.title}
+                    </Title>
+                    <Paragraph type="secondary" style={{ marginBottom: 4, color: '#5f6a8d' }}>
+                      <FaRegCalendarAlt style={{ marginRight: 6, color: '#59cbe8' }} />
+                      {blog.date}
+                    </Paragraph>
+                    <Paragraph style={{ color: '#5f6a8d', textAlign: 'justify' }}>
+                      {blog.desc}
+                    </Paragraph>
+                  </div>
+                  <motion.div
+                    whileHover={{ x: 6 }}
+                    style={{ display: 'flex', alignItems: 'center', marginTop: 10 }}
+                  >
+                    <Button
+                      type="link"
+                      style={{ padding: 0, color: '#d54e91', fontWeight: 600, display: 'flex', alignItems: 'center' }}
+                    >
+                      <span style={{ marginRight: 6 }}>Read More</span>
+                      <motion.span whileHover={{ x: 3 }}>
+                        ➡️
+                      </motion.span>
+                    </Button>
                   </motion.div>
                 </Card>
               </motion.div>
@@ -806,11 +854,7 @@ const Drives = () => (
       <section style={{ background: 'linear-gradient(135deg, #eaf6fa 60%, #f5fbfd 100%)', padding: '64px 0' }}>
         <Row justify="center" align="middle">
           <Col xs={24} md={16}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              whileHover={{ scale: 1.04, boxShadow: '0 0 0 8px rgba(89,203,232,0.13)' }}
+            <div
               style={{
                 background: '#fff',
                 borderRadius: 18,
@@ -846,10 +890,11 @@ const Drives = () => (
                   Volunteer Now
                 </Button>
               </motion.div>
-            </motion.div>
+            </div>
           </Col>
         </Row>
       </section>
+
 
     </div>
   </ConfigProvider>

@@ -242,14 +242,14 @@ const HomePage = () => (
     {/* Hero Section */}
     <section>
       <Swiper
-        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        modules={[Autoplay, EffectFade, Navigation]}
         effect="fade"
         loop
         navigation
-        pagination={{ clickable: true }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         style={{ height: "70vh" }}
       >
+
         {projectSlides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
@@ -343,7 +343,7 @@ const HomePage = () => (
         fontFamily: "Poppins, sans-serif",
         background: 'linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%)',
         padding: '12px 0',
-        marginTop: '20px',
+        marginTop: '5px',
         borderRadius: '14px',
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         overflow: 'hidden',
@@ -352,8 +352,15 @@ const HomePage = () => (
         whiteSpace: 'nowrap',
         cursor: 'pointer',
       }}
+      onMouseEnter={() => {
+        document.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      }}
+      onMouseLeave={() => {
+        document.querySelector('.scroll-content').style.animationPlayState = 'running';
+      }}
     >
       <div
+        className="scroll-content"
         style={{
           display: 'inline-block',
           minWidth: '200%',
@@ -390,7 +397,6 @@ const HomePage = () => (
         ))}
       </div>
 
-      {/* Keyframes for continuous scroll */}
       <style>
         {`
       @keyframes scroll {
@@ -426,7 +432,7 @@ const HomePage = () => (
 
 
 
-    {/* Mission Section */}
+
     <section style={{ padding: "4rem 1rem", background: "#f9f9f9" }}>
       <Row gutter={[24, 24]} justify="center" style={{ maxWidth: 1200, margin: "0 auto" }}>
         {missionCards.map((item, index) => {
@@ -445,136 +451,153 @@ const HomePage = () => (
           const [seeMoreHover, setSeeMoreHover] = React.useState(false);
 
           return (
-            <Col key={index} xs={24} sm={12} md={8} style={{ display: "flex", position: "relative" }}>
+            <Col
+              key={index}
+              xs={24}
+              sm={12}
+              md={8}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <div
-                style={{ width: "100%", position: "relative", cursor: "pointer" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "380px",
+                  height: "450px",
+                  position: "relative",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  cursor: "pointer",
+                }}
                 onMouseEnter={() => setPopupVisible(true)}
                 onMouseLeave={() => {
                   setPopupVisible(false);
                   setSeeMoreHover(false);
                 }}
               >
-                <div
-                  className="card-container"
+                {/* Background Card */}
+                <Card
+                  hoverable
                   style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
                     filter: popupVisible ? "blur(4px)" : "none",
-                    transition: "filter 0.3s ease",
+                    transition: "filter 0.3s",
                   }}
-                >
-                  <Card
-                    hoverable
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      transition: "transform 0.3s ease",
-                    }}
-                    cover={
-                      <div
-                        style={{
-                          padding: "1rem",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          textAlign: "center",
-                          height: "120px", // Optional: give a consistent height for vertical centering
-                        }}
-                      >
-                        {item.icon}
-                      </div>
-                    }
-
-                  >
-                    <Card.Meta
-                      title={
-                        <Typography.Title
-                          level={4}
-                          style={{ color: theme.token.colorPrimary, fontWeight: 700, textAlign: "center", marginTop: "-10px" }}
-                        >
-                          {item.title}
-                        </Typography.Title>
-                      }
-                      description={
-                        <Typography.Text
-                          style={{ color: theme.token.colorTextSecondary, display: "block", textAlign: "center" }}
-                        >
-                          {item.description}
-                        </Typography.Text>
-                      }
-                    />
-                    <Divider style={{ margin: "1rem 0" }} />
-                    <Typography.Paragraph style={{ flexGrow: 1, textAlign: "center" }}>
-                      {item.content}
-                    </Typography.Paragraph>
-                  </Card>
-                </div>
-
-                {/* Chat Bubble Popup */}
-                <div
-                  style={{
-                    opacity: popupVisible ? 1 : 0,
-                    pointerEvents: popupVisible ? "auto" : "none",
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: missionColors[catKey],
-                    borderRadius: '24px',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
-                    padding: '20px',
-                    zIndex: 10,
+                  bodyStyle={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '14px',
-                    transition: 'opacity 0.5s cubic-bezier(.22,.68,0,1.71), transform 0.5s cubic-bezier(.22,.68,0,1.71)',
-                    transform: popupVisible ? "scale(1) translateY(0)" : "scale(0.95) translateY(-20px)",
+                    flex: 1,
                   }}
-                >
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: '-18px',
-                      right: '30px',
-                      width: 0,
-                      height: 0,
-                      borderLeft: '14px solid transparent',
-                      borderRight: '14px solid transparent',
-                      borderTop: `18px solid ${missionColors[catKey]}`,
-                      filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.12))",
-                    }}
-                  />
-                  {statsData[catKey].map((stat, idx) => (
+                  cover={
                     <div
-                      key={idx}
                       style={{
-                        background: "#fff",
-                        padding: "10px 14px",
-                        borderRadius: 8,
+                        padding: "1rem",
                         display: "flex",
-                        justifyContent: "space-between",
+                        justifyContent: "center",
                         alignItems: "center",
-                        boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+                        height: "120px",
                       }}
                     >
-                      <span style={{ fontWeight: 600, color: "#1c276d" }}>{stat.label}</span>
-                      <span style={{ fontWeight: 700, color: missionSolid[catKey] }}>{stat.value}</span>
+                      {item.icon}
                     </div>
-                  ))}
+                  }
+                >
+                  <Card.Meta
+                    title={
+                      <Typography.Title
+                        level={4}
+                        style={{
+                          color: theme.token.colorPrimary,
+                          fontWeight: 700,
+                          textAlign: "center",
+                          marginTop: "-10px",
+                        }}
+                      >
+                        {item.title}
+                      </Typography.Title>
+                    }
+                    description={
+                      <Typography.Text
+                        style={{
+                          color: theme.token.colorTextSecondary,
+                          display: "block",
+                          textAlign: "center",
+                        }}
+                      >
+                        {item.description}
+                      </Typography.Text>
+                    }
+                  />
+                  <Divider style={{ margin: "1rem 0" }} />
+                  <Typography.Paragraph
+                    style={{
+                      flexGrow: 1,
+                      textAlign: "center",
+                      margin: "0 10px",
+                    }}
+                  >
+                    {item.content}
+                  </Typography.Paragraph>
+                </Card>
+
+                {/* Overlay Popup */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    background: missionColors[catKey],
+                    display: popupVisible ? "flex" : "none",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    padding: "20px",
+                    boxSizing: "border-box",
+                    borderRadius: "20px",
+                    zIndex: 5,
+                    transition: "all 0.3s ease-in-out",
+                  }}
+                >
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                    {statsData[catKey].map((stat, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          background: "#fff",
+                          padding: "10px 14px",
+                          borderRadius: 8,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+                        }}
+                      >
+                        <span style={{ fontWeight: 600, color: "#1c276d" }}>{stat.label}</span>
+                        <span style={{ fontWeight: 700, color: missionSolid[catKey] }}>{stat.value}</span>
+                      </div>
+                    ))}
+                  </div>
+
                   <button
                     style={{
                       background: seeMoreHover ? missionSolid[catKey] : "transparent",
                       color: seeMoreHover ? "#fff" : missionSolid[catKey],
                       border: `2px solid ${missionSolid[catKey]}`,
                       borderRadius: 20,
-                      padding: "6px 18px",
+                      padding: "10px",
                       fontWeight: 600,
                       cursor: "pointer",
-                      alignSelf: "flex-end",
-                      marginTop: 10,
-                      transition: "background 0.3s, color 0.3s",
+                      textAlign: 'center',
+                      transition: "all 0.3s",
+                      marginTop: "2px",
                     }}
                     onMouseEnter={() => setSeeMoreHover(true)}
                     onMouseLeave={() => setSeeMoreHover(false)}
@@ -584,17 +607,26 @@ const HomePage = () => (
                 </div>
               </div>
             </Col>
-
           );
         })}
+
         <Col span={24} style={{ textAlign: "center", marginTop: "2rem" }}>
-          <blockquote style={{ fontSize: "1.5rem", fontStyle: "italic", color: theme.token.colorPrimary }}>
+          <blockquote
+            style={{
+              fontSize: "1.5rem",
+              fontStyle: "italic",
+              color: theme.token.colorPrimary,
+            }}
+          >
             "Life gets a meaning, if it is lived for others"
           </blockquote>
           <Divider style={{ maxWidth: 200, margin: "1rem auto" }} />
         </Col>
       </Row>
     </section>
+
+
+
 
 
 
@@ -636,6 +668,10 @@ const HomePage = () => (
       </Row>
     </section>
 
+
+
+
+
     {/* Vision Section */}
     <section style={{ padding: "4rem 1rem", background: "#f7fafd" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
@@ -645,7 +681,8 @@ const HomePage = () => (
         <Paragraph style={{ fontSize: "1.1rem", color: "#374151" }}>
           Transforming noble ideals into impactful initiatives
         </Paragraph>
-        <div style={{ marginTop: "2rem" }}>
+
+        <div style={{ marginTop: "2rem", position: "relative" }}>
           <Slider {...sliderSettings}>
             {cards.map((card, idx) => (
               <div key={idx}>
@@ -655,22 +692,30 @@ const HomePage = () => (
                   style={{
                     margin: "0 8px",
                     borderRadius: 16,
-                    minHeight: 420,
+                    minHeight: 440,
                     border: `2px solid ${categoryColors[card.category]}`,
                     transition: "transform 0.4s cubic-bezier(.4,2,.6,1)",
                     overflow: "hidden",
                   }}
                   cover={
-                    <div
-                      style={{
-                        height: 220,
-                        backgroundImage: `url(${card.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        borderTopLeftRadius: 16,
-                        borderTopRightRadius: 16,
-                      }}
-                    />
+                    <div style={{ position: "relative" }}>
+                      <div
+                        style={{
+                          height: 220,
+                          backgroundImage: `url(${card.image})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          borderTopLeftRadius: 16,
+                          borderTopRightRadius: 16,
+                        }}
+                      />
+                      {/* Black Divider Line */}
+                      {/* <div style={{
+                        height: "2px",
+                        background: "black",
+                        margin: "0 16px"
+                      }} /> */}
+                    </div>
                   }
                 >
                   <Title level={4} style={{ color: "#1a237e", fontWeight: 700, marginBottom: 8 }}>
@@ -681,6 +726,7 @@ const HomePage = () => (
                   </Paragraph>
                   <Button
                     type="default"
+                    className="read-more-button"
                     style={{
                       padding: 0,
                       background: "transparent",
@@ -689,12 +735,9 @@ const HomePage = () => (
                       fontWeight: 600,
                       fontSize: "16px",
                       cursor: "pointer",
-                      transition: "color 0.3s ease",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#1c276d")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#1890ff")}
                   >
-                    Read More
+                    <span className="button-text">Read More</span>
                   </Button>
                 </Card>
               </div>
@@ -702,23 +745,20 @@ const HomePage = () => (
           </Slider>
         </div>
 
-        {/* Updated Styles: Removed Zoom Effect */}
         <style>{`
       .slick-slide {
         transition: transform 0.4s cubic-bezier(.4,2,.6,1);
         opacity: 1 !important;
         pointer-events: auto;
       }
-      .slick-center .center-zoom-card {
-        transform: scale(1);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-        z-index: 1;
-      }
+
+      .slick-center .center-zoom-card,
       .slick-slide .center-zoom-card {
         transform: scale(1);
         box-shadow: 0 4px 16px rgba(0,0,0,0.10);
         z-index: 1;
       }
+
       .slick-arrow {
         background: #fff !important;
         border-radius: 50%;
@@ -727,10 +767,56 @@ const HomePage = () => (
         height: 40px;
         z-index: 5;
       }
+
       .slick-arrow:before {
         color: #1a237e;
         font-size: 28px;
       }
+
+      /* Move slider arrows slightly away */
+      .slick-prev {
+        left: -50px !important;
+      }
+
+      .slick-next {
+        right: -50px !important;
+      }
+
+      /* Responsive Arrow Position */
+      @media (max-width: 768px) {
+        .slick-prev {
+          left: -30px !important;
+        }
+        .slick-next {
+          right: -30px !important;
+        }
+      }
+
+      /* Read More Button Hover Effect */
+      .read-more-button .button-text::after {
+        content: "";
+        display: inline-block;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateX(-5px);
+      }
+
+      .read-more-button:hover .button-text {
+        color: #1c276d;
+      }
+
+      .read-more-button:hover .button-text::after {
+        content: "→";
+        margin-left: 8px;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Hide text on hover */
+      .read-more-button:hover .button-text::before {
+        content: "";
+      }
+
       @media (max-width: 900px) {
         .slick-slide .center-zoom-card,
         .slick-center .center-zoom-card {
@@ -743,6 +829,7 @@ const HomePage = () => (
 
 
 
+
     {/* Partners Section */}
     <section
       style={{
@@ -751,7 +838,7 @@ const HomePage = () => (
         overflow: "hidden",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
+      <div style={{ width: "100%", textAlign: "center" }}>
         <Title
           level={2}
           style={{
@@ -763,110 +850,122 @@ const HomePage = () => (
           Our Network of Changemakers
         </Title>
 
-        {/* First Row - Continuous Right to Left */}
+        {/* First Row - Right to Left Infinite */}
         <div
           style={{
+            width: "100%",
             overflow: "hidden",
             whiteSpace: "nowrap",
+            background: "#ffffff",
+            borderRadius: "12px",
+            padding: "12px 0",
             marginBottom: "2rem",
-            background: "#f0f4ff",
-            borderRadius: "12px",
-            padding: "8px 0",
           }}
         >
           <div
+            className="marquee"
             style={{
-              display: "inline-flex",
-              minWidth: "200%",
-              animation: "scroll 40s linear infinite",
+              display: "flex",
+              animation: "marquee 40s linear infinite",
             }}
           >
-            {[img4, img5, img6, img4, img5, img6, img4, img5, img6].map((img, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "0 2rem",
-                }}
-              >
-                <img
-                  src={img}
-                  alt={`Brand ${idx + 1}`}
+            {[...Array(2)].map((_, loopIdx) => (
+              [img4, img5, img6, img4, img5, img6].map((img, idx) => (
+                <div
+                  key={`r-${loopIdx}-${idx}`}
                   style={{
-                    maxHeight: "90px",
-                    width: "auto",
-                    objectFit: "contain",
-                    filter: "grayscale(0%) brightness(1)",
-                    transition: "transform 0.3s ease",
+                    flex: "0 0 auto",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0 3rem",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                />
-              </div>
+                >
+                  <img
+                    src={img}
+                    alt={`Brand ${idx + 1}`}
+                    style={{
+                      maxHeight: "90px",
+                      objectFit: "contain",
+                      filter: "grayscale(0%) brightness(1)",
+                      transition: "transform 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+                </div>
+              ))
             ))}
           </div>
         </div>
 
-        {/* Second Row - Continuous Left to Right */}
+        {/* Second Row - Left to Right Infinite (Corrected) */}
         <div
           style={{
+            width: "100%",
             overflow: "hidden",
             whiteSpace: "nowrap",
-            background: "#f0f4ff",
+            background: "#ffffff",
             borderRadius: "12px",
-            padding: "8px 0",
+            padding: "12px 0",
           }}
         >
           <div
+            className="marquee-reverse"
             style={{
-              display: "inline-flex",
-              minWidth: "200%",
-              animation: "scrollReverse 40s linear infinite",
+              display: "flex",
+              animation: "marquee-reverse 40s linear infinite",
             }}
           >
-            {[img4, img5, img6, img4, img5, img6, img4, img5, img6].map((img, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "0 2rem",
-                }}
-              >
-                <img
-                  src={img}
-                  alt={`Brand ${idx + 1}`}
+            {[...Array(2)].map((_, loopIdx) => (
+              [img4, img5, img6, img4, img5, img6].map((img, idx) => (
+                <div
+                  key={`rev-${loopIdx}-${idx}`}
                   style={{
-                    maxHeight: "90px",
-                    width: "auto",
-                    objectFit: "contain",
-                    filter: "grayscale(0%) brightness(1)",
-                    transition: "transform 0.3s ease",
+                    flex: "0 0 auto",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0 3rem",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                />
-              </div>
+                >
+                  <img
+                    src={img}
+                    alt={`Brand ${idx + 1}`}
+                    style={{
+                      maxHeight: "90px",
+                      objectFit: "contain",
+                      filter: "grayscale(0%) brightness(1)",
+                      transition: "transform 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+                </div>
+              ))
             ))}
           </div>
         </div>
 
-        {/* Keyframes */}
         <style>{`
-      @keyframes scroll {
+      @keyframes marquee {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
       }
-      @keyframes scrollReverse {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(50%); }
+      @keyframes marquee-reverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+      }
+
+      .marquee,
+      .marquee-reverse {
+        width: fit-content;
       }
     `}</style>
       </div>
     </section>
+
+
 
 
 

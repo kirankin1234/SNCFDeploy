@@ -292,7 +292,7 @@ const HonoursContent = () => (
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 * idx }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <Title level={2} style={{ color: "#1a237e", marginBottom: 0 }}>
               <CountUp end={counter.end} duration={4} />+
